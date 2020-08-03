@@ -25,6 +25,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Install git-lfs
+      run: |
+        curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+        sudo apt install git-lfs
     - uses: actions/checkout@v2
     - name: Run testeth
       run: ./testeth ${{ github.event.inputs.params }}
